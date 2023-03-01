@@ -112,12 +112,27 @@ require('lazy').setup({
     },
   },
 
+
+  -- Theming
+  { -- Plugin for easily building custom themes
+    'rktjmp/lush.nvim'
+  },
+
+  { -- Custom Takodachi theme built with lush
+    dir = '~/.config/nvim/lua/lush_themes/tako',
+    -- lazy = true,
+    config = function()
+      vim.cmd.colorscheme 'tako'
+    end,
+  },
+
   { -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    -- config = function()
+    --   vim.cmd.colorscheme 'onedark'
+    -- end,
+    lazy = true,
   },
 
   { -- Set lualine as statusline
@@ -125,10 +140,10 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        icons_enabled = true,
+        theme = 'seoul256',
+        -- component_separators = '|',
+        -- section_separators = '',
       },
     },
   },
@@ -235,6 +250,7 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set('n', ';', ':')
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
