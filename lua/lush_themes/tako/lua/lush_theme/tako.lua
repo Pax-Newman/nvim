@@ -126,9 +126,9 @@ local theme = lush(function(injected_functions)
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
     -- StatusLine   { }, -- Status line of current window
     -- StatusLineNC { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    -- TabLine      { }, -- Tab pages line, not active tab page label
-    -- TabLineFill  { }, -- Tab pages line, where there are no labels
-    -- TabLineSel   { }, -- Tab pages line, active tab page label
+    TabLine      { fg = blueslate }, -- Tab pages line, not active tab page label
+    TabLineFill  { }, -- Tab pages line, where there are no labels
+    TabLineSel   { fg = turquoise, gui='bold' }, -- Tab pages line, active tab page label
     -- Title        { }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual       { fg =  white, bg = softpink }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
