@@ -181,6 +181,9 @@ require('lazy').setup({
     end,
   },
 
+  -- Integrated terminal
+  { 'numToStr/FTerm.nvim' },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -359,6 +362,22 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
+
+-- [[ Configure FTerm ]]
+-- see `:help fterm`
+require('FTerm').setup {
+  border = 'single',
+  dimensions = {
+    height = 0.8,
+    width = 0.7,
+  },
+}
+
+vim.keymap.set('n', '<leader>ot', require('FTerm').toggle, { desc = '[O]pen [T]erminal' })
+-- toggle term in normal mode
+vim.keymap.set('n', '<C-i>', '<CMD>lua require("FTerm").toggle()<CR>')
+-- toggle term in terminal mode
+vim.keymap.set('t', '<C-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
