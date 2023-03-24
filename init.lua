@@ -204,6 +204,9 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- Add rounded borders to diagnostic windows
+vim.diagnostic.config { float = { border = "rounded" }, }
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -366,7 +369,7 @@ require('nvim-treesitter.configs').setup {
 -- [[ Configure FTerm ]]
 -- see `:help fterm`
 require('FTerm').setup {
-  border = 'single',
+  border = 'rounded',
   dimensions = {
     height = 0.8,
     width = 0.7,
