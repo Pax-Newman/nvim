@@ -49,7 +49,7 @@ local orange       = hsl('#ffaf87')
 local blueslate    = hsl('#8787af')
 local turquoise    = hsl('#5f8787')
 local softpink     = hsl('#d7afd7')
-local softpurple   = hsl('#afafd7') 
+local softpurple   = hsl('#afafd7')
 local strongpurple = hsl('#af87d7')
 local magenta      = hsl('#d75f87')
 
@@ -203,9 +203,9 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError            { bg = difftext, fg = white } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { fg = softpurple } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
