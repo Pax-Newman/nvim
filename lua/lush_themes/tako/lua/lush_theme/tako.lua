@@ -255,8 +255,8 @@ local theme = lush(function(injected_functions)
     -- sym"@define"            { }, -- Define
     -- sym"@macro"             { }, -- Macro
     -- sym"@string"            { }, -- String
-    -- sym"@string.escape"     { }, -- SpecialChar
-    -- sym"@string.special"    { }, -- SpecialChar
+    sym"@string.escape"     { fg = softpurple }, -- SpecialChar
+    sym"@string.special"    { fg = softpurple }, -- SpecialChar
     -- sym"@character"         { }, -- Character
     -- sym"@character.special" { }, -- SpecialChar
     -- sym"@number"            { }, -- Number
