@@ -34,26 +34,8 @@ vim.opt.rtp:prepend(lazypath)
 --  as they will be available in your neovim runtime.
 require('lazy').setup({
 
-  ------ Git Tools ------
 
-  'tpope/vim-fugitive',
-
-  'tpope/vim-rhubarb',
-
-  {
-    -- Adds git releated signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
+  ------ QoL Improvements ------
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -235,8 +217,65 @@ require('lazy').setup({
     -- Adds colors & icons to comments like TODO, BUG, HACK
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {}
+    opts = {
+      keywords = {
+        FIX = {
+          icon = " ",                              -- icon used for the sign, and in search results
+          color = "error",                            -- can be a hex color, or a named color (see below)
+          alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+          -- signs = false, -- configure signs for some keywords individually
+        },
+        -- FIX:
+        TODO = { icon = " ", color = "info" },
+        -- TODO:
+        HACK = { icon = " ", color = "warning" },
+        -- HACK:
+        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+        -- WARN:
+        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+        -- PERF:
+        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+        -- NOTE:
+        TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+        -- TEST:
+      },
+    }
   },
+
+  ------ Git Tools ------
+
+  'tpope/vim-fugitive',
+
+  'tpope/vim-rhubarb',
+
+  {
+    -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      -- See `:help gitsigns.txt`
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
+  },
+
+  {
+    -- NOTE: This needs to be setup after the active colorscheme
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "nvim-telescope/telescope.nvim", -- optional
+      "sindrets/diffview.nvim",        -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = true
+  },
+
+
 
 }, {})
 
